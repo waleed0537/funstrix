@@ -1,0 +1,21 @@
+.form-control {
+    font-family: "Jost", sans-serif !important;
+    padding: 0.75rem 0.75rem !important;
+    border-radius: 15px 30px 10px 30px !important;
+    border: transparent;
+    color: #ee4462 !important;
+}
+
+.btn-outline-secondary {
+    color: #ffffff;
+    background-color: #cd3f96;
+    border-color: #cd3f96;
+    border-radius: 25px 28px 15px 34px;
+    box-shadow: 1px 2px 2px 2px #bcbcbc;
+}
+
+.btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #f38e3d;
+    border-color: #f38e3d;
+}
