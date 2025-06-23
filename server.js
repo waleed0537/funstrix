@@ -1,7 +1,9 @@
 const express = require('express');
-const stripe = require('stripe')('sk_test_51Rb0xKFbzjdhy0yS7FjShWPBqEnPnmSFc7rijVOX5xkZFI1XNiGouxby7DaCCjHGele3pfbVqtUmUAI8bDE0s3x400bEHF4Lbq'); // Replace with your secret key
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); // Replace with your secret key
 const path = require('path');
 const app = express();
+require('dotenv').config();
+
 
 // Middleware
 app.use(express.json());

@@ -1212,7 +1212,7 @@
         let selectedPlan = plans.standard;
 
         // Initialize Stripe
-const stripe = Stripe('pk_test_51Rb0xKFbzjdhy0yShN1ZIKBIpPg0AvkudePpU8dHW50atmIGeoQmHwSKVarKVEnnRVJHUlaJHaQVPNE4E83IytZD00IST39K2w');
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
         const elements = stripe.elements();
 
         // Create card element
