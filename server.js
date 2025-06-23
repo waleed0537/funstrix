@@ -1,11 +1,21 @@
 const express = require('express');
-const stripe = require('stripe')('pk_test_51Rb0xKFbzjdhy0yShN1ZIKBIpPg0AvkudePpU8dHW50atmIGeoQmHwSKVarKVEnnRVJHUlaJHaQVPNE4E83IytZD00IST39K2w'); // Replace with your secret key
+const stripe = require('stripe')('sk_test_51Rb0xKFbzjdhy0yS7FjShWPBqEnPnmSFc7rijVOX5xkZFI1XNiGouxby7DaCCjHGele3pfbVqtUmUAI8bDE0s3x400bEHF4Lbq'); // Replace with your secret key
 const path = require('path');
 const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(express.static('public')); // Serve static files from public directory
+
+// Serve static files from multiple directories
+app.use(express.static('public')); // Keep existing public directory
+app.use('/Themes', express.static('Themes')); // Serve Themes directory
+app.use('/lib', express.static('lib')); // Serve lib directory
+app.use('/icons', express.static('icons')); // Serve icons directory
+
+// Alternative: If you don't have the Themes directory, serve from public with URL rewriting
+app.use('/Themes/WristwearTheme/Content', express.static(path.join(__dirname, 'public/css')));
+app.use('/lib', express.static(path.join(__dirname, 'public/lib')));
+app.use('/icons', express.static(path.join(__dirname, 'public/icons')));
 
 // Enable CORS for development
 app.use((req, res, next) => {
@@ -127,4 +137,9 @@ app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
     console.log('Payment endpoint: http://localhost:3000/create-payment-intent');
     console.log('Payment page: http://localhost:3000/payment');
+    console.log('Static files being served from:');
+    console.log('- public/ directory');
+    console.log('- Themes/ directory (mapped to /Themes)');
+    console.log('- lib/ directory (mapped to /lib)');
+    console.log('- icons/ directory (mapped to /icons)');
 });
