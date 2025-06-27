@@ -1,9 +1,13 @@
-const express = require('express');
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); // Replace with your secret key
-const path = require('path');
-const app = express();
+// Load environment variables FIRST
 require('dotenv').config();
 
+const express = require('express');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); // Now this will work
+const path = require('path');
+const app = express();
+
+// Add a debug log to verify the key is loaded
+console.log('Stripe Secret Key loaded:', process.env.STRIPE_SECRET_KEY ? 'Yes ✓' : 'No ✗');
 
 // Middleware
 app.use(express.json());
@@ -132,6 +136,10 @@ app.post('/webhook', express.raw({type: 'application/json'}), (req, res) => {
 // Serve your payment.html file
 app.get('/payment', (req, res) => {
     res.sendFile(path.join(__dirname, 'payment.html'));
+});
+
+app.get('/how-it-works', (req, res) => {
+    res.sendFile(path.join(__dirname, 'how-it-works.html'));
 });
 
 const PORT = process.env.PORT || 3000;

@@ -2,18 +2,6 @@
 <html lang="en" class="html-payment-page">
 
 <head>
-    <link href="/Themes/WristwearTheme/Content/css/style.css" rel="stylesheet" type="text/css" />
-    <link href="/Themes/WristwearTheme/Content/css/slick-theme.css" rel="stylesheet" type="text/css" />
-    <link href="/Themes/WristwearTheme/Content/css/slick.css" rel="stylesheet" type="text/css" />
-    <link href="/Themes/WristwearTheme/Content/css/magnific-popup.min.css" rel="stylesheet" type="text/css" />
-    <link href="/Themes/WristwearTheme/Content/css/owl.carousel.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"
-        type="text/css" />
-    <link href="/Themes/WristwearTheme/Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="/Themes/WristwearTheme/Content/css/bootstrap-override.css" rel="stylesheet" type="text/css" />
-    <link href="/Themes/WristwearTheme/Content/css/animate.min.css" rel="stylesheet" type="text/css" />
-
-    <link rel="shortcut icon" href="/icons/icons_0/favicon1.ico" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/lib/WhatsAppChat/WhatsAppChat.js"></script>
     <script src="https://js.stripe.com/v3/"></script>
@@ -765,7 +753,7 @@
                         <div class="col-lg-2">
                             <div class="site-branding">
                                 <a href="/">
-                                    <img title="" alt="Funstrix Program" src="./Themes/WristwearTheme/Content/images/logo.png">
+                                    <img title="" alt="Funstrix Program" src="">
                                 </a>
                             </div>
                         </div>
@@ -1170,7 +1158,7 @@
         const plans = {
             starter: {
                 name: 'Starter Plan',
-                price: 260, // $65 x 4 weeks
+                price: 65, // $65 x 4 weeks
                 period: 'for 4 weeks',
                 description: 'Perfect for trying out our programs',
                 features: [
@@ -1212,7 +1200,7 @@
         let selectedPlan = plans.standard;
 
         // Initialize Stripe
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = Stripe('pk_test_51Rb0xKFbzjdhy0yShN1ZIKBIpPg0AvkudePpU8dHW50atmIGeoQmHwSKVarKVEnnRVJHUlaJHaQVPNE4E83IytZD00IST39K2w');
         const elements = stripe.elements();
 
         // Create card element
@@ -1518,4 +1506,4 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 
 </body>
-</html>
+</html> 
